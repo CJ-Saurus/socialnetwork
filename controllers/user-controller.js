@@ -1,7 +1,6 @@
 const { User } = require('../models');
 
 const UserController = {
-
     getAllUsers(req, res) {
         User.find({})
             .then(userData => res.json(userData))
@@ -70,6 +69,7 @@ const UserController = {
                 }
 
                 const removed = !dbUserData.friends.includes(params.friendId);
+
                 if (removed) {
                     res.json({ message: "Friend removed successfully!", dbUserData });
                 } else {
